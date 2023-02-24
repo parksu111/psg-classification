@@ -40,7 +40,7 @@ if __name__== "__main__":
         newid = ''.join(random.choice(characters) for i in range(10))
         while newid+'.npy' in encoded_fname:
             newid = ''.join(random.choice(characters) for i in range(10))
-        newid = newid+'.png'
+        newid = newid+'.npy'
         # Randomly select train or test
         random_number = random.uniform(0,1)
         if random_number < 0.2: #test
