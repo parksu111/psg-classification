@@ -12,7 +12,7 @@ if __name__== "__main__":
     parser.add_argument('--npy_dir', type=pathlib.Path, required=True, help='Path to directory containing npy files')
     parser.add_argument('--output_dir', type=pathlib.Path, required=True, help='Path to input directory')    
     parser.add_argument('--num_window', type=int, choices=[1,3], required=True, help='Number of windows to use')
-    parser.add_argument('--down_sample_factor', type = int, choices=[1,2,3], deault=1, help='Factor to downsample signal')
+    parser.add_argument('--down_sample_factor', type = int, choices=[1,2,3], default=1, help='Factor to downsample signal')
 
     # Read arguments
     args = parser.parse_args()
