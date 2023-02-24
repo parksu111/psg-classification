@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from tqdm import tqdm
 import argparse
+import pathlib
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -26,3 +27,4 @@ if __name__ == "__main__":
 
     norm_npy = np.array([a,b])
     savepath = os.path.join(out_path, 'norm.npy')
+    np.save(savepath, norm_npy)
