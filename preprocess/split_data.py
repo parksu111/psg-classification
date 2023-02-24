@@ -67,4 +67,5 @@ if __name__== "__main__":
     fstages = [x.split('_')[2] for x in fnames]
     traindf = traindf.drop(columns=['file_id','train'])
     traindf['stage'] = fstages
-    traindf.to_csv(os.path.join(train_dir, 'traindf.csv'), index=False)
+    traindf = traindf.rename(columns={'encoded_id':'rec_id'})
+    traindf.to_csv(os.path.join(output_dir, 'train_labels.csv'), index=False)
