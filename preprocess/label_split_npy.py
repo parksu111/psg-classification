@@ -12,6 +12,7 @@ if __name__== "__main__":
     parser.add_argument('--npy_dir', type=pathlib.Path, required=True, help='Path to directory containing npy files')
     parser.add_argument('--output_dir', type=pathlib.Path, required=True, help='Path to input directory')    
     parser.add_argument('--num_window', type=int, choices=[1,3], required=True, help='Number of windows to use')
+    parser.add_argument('--down_sample_factor', type = int, choices=[1,2,3], deault=1, help='Factor to downsample signal')
 
     # Read arguments
     args = parser.parse_args()
@@ -19,6 +20,7 @@ if __name__== "__main__":
     npy_dir = args.npy_dir
     output_dir = args.output_dir
     num_window = args.num_window
+    dsf = args.down_sample_factor
 
     # Make directories for output
     os.makedirs(output_dir, exist_ok=True)
@@ -50,6 +52,7 @@ if __name__== "__main__":
             dur = durations[idx]
             onset = onsets[idx]
             if (stg in ['W','1','2','3','R'])&(dur==30):
+                # Extract subsignal
                 if num_window==3:
                     startind = int((onset-30)*256)
                     endind = startind + 90*256
@@ -57,6 +60,9 @@ if __name__== "__main__":
                     startind = onset*256
                     endind = onset+30*256
                 subarray = eeg_array[startind:endind]
+                # Down sample
+                subarray = subarray[0::dsf]
+                # Save file
                 if stg == 'W':
                     savename = recid + '_W_' + str(wcnt)
                     wcnt+=1
