@@ -4,6 +4,7 @@ import mne
 from tqdm import tqdm
 import argparse
 import pathlib
+import re
 
 if __name__== "__main__":
     # Arguments
@@ -19,7 +20,10 @@ if __name__== "__main__":
     channel = args.channel
 
     # Make directories for output
-    outpath = os.path.join(output_dir, channel)
+    s = channel.lower()
+    s = re.sumb('[^0-9a-zA-Z]+', '_',s)
+    s = s.replace(' ','_')
+    outpath = os.path.join(output_dir, s)
     os.makedirs(outpath, exist_ok=True)
 
     # List EDF files
