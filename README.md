@@ -3,7 +3,7 @@
 
 
 ## Introduction
-This competition task was developed as part of an educational program hosted by [KOSMES](https://www.kosmes.or.kr/sbc/SH/EHP/SHEHP001M0.do) and run by [MNC](https://mnc.ai/). The actual commpetition page can be found [here](https://aiconnect.kr/competition/detail/209/task/238/taskInfo). 
+This competition task was developed as part of an educational program hosted by [KOSMES](https://www.kosmes.or.kr/sbc/SH/EHP/SHEHP001M0.do) and run by [MNC](https://mnc.ai/). The actual competition page can be found [here](https://aiconnect.kr/competition/detail/209/task/238/taskInfo). 
 
 This repository contains the code that went into the preparation of an AI competition task. This inlcudes:
 * Processing raw data.
